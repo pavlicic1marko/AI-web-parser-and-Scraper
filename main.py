@@ -1,6 +1,7 @@
 import streamlit as st
 from scraper import scrape_website
 from html_parser import split_dom_content_by_length
+from llama_ai import parse_with_ollama
 
 
 st.title("AI Web Scraper")
@@ -25,3 +26,5 @@ if "dom_content" in st.session_state:
             st.write("Parsing the content")
 
             dom_chunks = split_dom_content_by_length(st.session_state.dom_content)
+            results = parse_with_ollama(dom_chunks,parse_description)
+            st.write(results)
