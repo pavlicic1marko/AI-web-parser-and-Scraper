@@ -1,5 +1,6 @@
 import selenium.webdriver as webdriver
 from selenium.webdriver.chrome.service import Service
+from html_parser import extract_body, clean_body_content
 
 
 def scrape_website(website):
@@ -7,13 +8,16 @@ def scrape_website(website):
 
     chrome_driver_path = "chromedriver.exe"
     options = webdriver.ChromeOptions()
-    driver = webdriver.Chrome(service=Service(chrome_driver_path),options=options)
+    driver = webdriver.Chrome(service=Service(chrome_driver_path), options=options)
 
     try:
         driver.get(website)
         print("page was loaded")
         html = driver.page_source
 
-        return html
+        html_body = extract_body(html)
+        data = clean_body_content(html_body)
+
+        return data
     finally:
         driver.quit()
