@@ -1,6 +1,6 @@
 import selenium.webdriver as webdriver
 from selenium.webdriver.chrome.service import Service
-from html_parser import extract_body, clean_body_content, split_dom_content_by_length
+from html_parser import extract_body, clean_body_content
 
 
 def scrape_website(website):
@@ -17,7 +17,6 @@ def scrape_website(website):
 
         html_body = extract_body(html)
         data = clean_body_content(html_body)
-        data = split_dom_content_by_length(data)
 
         return data
     finally:
