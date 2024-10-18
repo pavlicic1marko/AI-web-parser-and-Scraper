@@ -1,5 +1,5 @@
 import streamlit as st
-from scraper import scrape_website
+from scraper import scrape_website, scrape_website_with_remote_connection
 from html_parser import split_dom_content_by_length
 from llama_ai import parse_with_ollama
 
@@ -9,7 +9,7 @@ url = st.text_input("Enter a website URL:")
 
 if st.button("Scraper Site"):
     st.write("Scraping...")
-    result = scrape_website(url)
+    result = scrape_website_with_remote_connection(url)
 
     st.session_state.dom_content = result #store in session
 
