@@ -1,5 +1,7 @@
 import selenium.webdriver as webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+
 from html_parser import extract_body, clean_body_content
 from selenium.webdriver import Remote, ChromeOptions
 from selenium.webdriver.chromium.remote_connection import ChromiumRemoteConnection
@@ -28,6 +30,23 @@ def scrape_website(website):
         data = clean_body_content(html_body)
 
         return data
+    finally:
+        driver.quit()
+
+
+def scrape_web_elemnt(website, css_selector):
+    print("launching chrome browser")
+
+    chrome_driver_path = "chromedriver.exe"
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(service=Service(chrome_driver_path), options=options)
+
+    try:
+        driver.get(website)
+        print("page was loaded")
+        html = driver.find_elements(By.CSS_SELECTOR,css_selector)
+
+        return  [i.text  for  i in html]
     finally:
         driver.quit()
 
