@@ -6,9 +6,12 @@ from llama_ai import parse_with_ollama
 
 st.title("AI Web Scraper")
 url = st.text_input("Enter a website URL:")
+use_proxy = st.checkbox("use proxy when scraping")
+
 
 if st.button("Scraper Site"):
     st.write("Scraping...")
+    st.write("use proxy:" + str(use_proxy))
     result = scrape_website_with_remote_connection(url)
 
     st.session_state.dom_content = result #store in session
