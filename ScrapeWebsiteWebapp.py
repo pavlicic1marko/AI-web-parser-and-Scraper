@@ -1,5 +1,5 @@
 import streamlit as st
-from scraper import scrape_website, scrape_website_with_remote_connection
+from scraper import scrape_website_without_proxy, scrape_website_with_remote_connection, scrape_website
 from html_parser import split_dom_content_by_length
 from llama_ai import parse_with_ollama
 
@@ -11,8 +11,7 @@ use_proxy = st.checkbox("use proxy when scraping")
 
 if st.button("Scraper Site"):
     st.write("Scraping...")
-    st.write("use proxy:" + str(use_proxy))
-    result = scrape_website_with_remote_connection(url)
+    result = scrape_website(url, use_proxy)
 
     st.session_state.dom_content = result #store in session
 

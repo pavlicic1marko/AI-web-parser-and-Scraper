@@ -13,8 +13,13 @@ load_dotenv()
 
 SBR_WEBDRIVER = os.getenv("SBR_WEBDRIVER")
 
+def scrape_website(website_url, use_proxy):
+    if(use_proxy):
+        return scrape_website_with_remote_connection(website_url)
+    else:
+        return scrape_website_without_proxy(website_url)
 
-def scrape_website(website):
+def scrape_website_without_proxy(website):
     print("launching chrome browser")
 
     chrome_driver_path = "chromedriver.exe"
@@ -34,7 +39,7 @@ def scrape_website(website):
         driver.quit()
 
 
-def scrape_web_elemnt(website, css_selector):
+def scrape_web_element(website, css_selector):
     print("launching chrome browser")
 
     chrome_driver_path = "chromedriver.exe"
