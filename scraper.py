@@ -46,7 +46,7 @@ def scrape_web_elemnt(website, css_selector):
         print("page was loaded")
         html = driver.find_element(By.CSS_SELECTOR,css_selector)
 
-        return html
+        return html.text
     finally:
         driver.quit()
 
