@@ -3,10 +3,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from pathlib import Path
 
-def get_all_company_links():
-    FILE = Path("Baza leadova PI.xlsx")
+def get_all_company_links(root_url):
 
-    root_url = "https://www.privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=432100"
 
     response = requests.get(root_url)
     response.raise_for_status()
