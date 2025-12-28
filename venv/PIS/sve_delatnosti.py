@@ -1,8 +1,4 @@
 dict1 = {
-    "https://privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=433300": 6,
-    "https://privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=411000": 5,
-    "https://privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=432900": 7,
-    "https://privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=429100": 7,
     "https://privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=412000": 47,
     "https://privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=439900": 20,
     "https://privredni-imenik.com/pretraga?keyword=&cities_id=0&category_id=8&sub_category_id=433900": 14,
